@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Interview{% endblock %}</title>
+
+    <link rel="stylesheet" href="/static/interview/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/interview/css/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="/static/interview/css/bootstrap-reboot.min.css"/>
+
+    <script src="/static/interview/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/interview/js/bootstrap.min.js"></script>
+    <script src="/static/interview/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+<div id="content" class="container-fluid">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>
