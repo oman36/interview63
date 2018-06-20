@@ -124,4 +124,4 @@ STATIC_URL = '/static/'
 
 VK_CLIENT_SECRET = os.environ.get('VK_CLIENT_SECRET') or 'menL7CDLHjjnF4XBZUxk'
 VK_CLIENT_ID = os.environ.get('VK_CLIENT_ID') or '6610098'
-SITE_URL = os.environ.get('VK_CLIENT_SECRET') or 'http://localhost:84'
+SITE_URL = os.environ.get('SITE_URL') or 'http://localhost:84'
