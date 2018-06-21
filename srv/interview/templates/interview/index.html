@@ -1,0 +1,12 @@
+{% extends "interview/layout.html" %}
+{% block content %}
+    <br>
+    <ul class="list-group">
+        {% for friend in friends %}
+            <li class="list-group-item">
+                {{ friend.last_name }}
+                {{ friend.first_name }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

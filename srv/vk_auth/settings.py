@@ -25,7 +25,10 @@ SECRET_KEY = '5#ddkxk+(fvl4a%ad2c8559aw#g*37#4qzrvy)(c+mov1mxf@c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'interview63.tk',
+    'localhost',
+]
 
 
 # Application definition

@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.conf import settings
 from django.shortcuts import render
 import requests
+import vk
 
 
 def index(request):
@@ -9,7 +10,12 @@ def index(request):
     if not access_token:
         return auth(request)
 
-    return HttpResponse(access_token)
+    vk_api = vk.API(vk.Session(access_token=access_token))
+
+    friends = vk_api.friends.get(count=5, fields='nickname', v=5.80)
+
+    friends = friends.get('items')
+    return render(request, 'interview/index.html', {'friends': friends})
 
 
 def auth(request):
