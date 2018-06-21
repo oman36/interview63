@@ -26,8 +26,7 @@ SECRET_KEY = '5#ddkxk+(fvl4a%ad2c8559aw#g*37#4qzrvy)(c+mov1mxf@c'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'interview63.tk',
-    'localhost',
+    os.environ.get('SITE_DOMAIN') or 'localhost',
 ]
 
 
@@ -125,6 +124,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-VK_CLIENT_SECRET = os.environ.get('VK_CLIENT_SECRET') or 'menL7CDLHjjnF4XBZUxk'
-VK_CLIENT_ID = os.environ.get('VK_CLIENT_ID') or '6610098'
-SITE_URL = os.environ.get('SITE_URL') or 'http://localhost:84'
+VK_CLIENT_SECRET = os.environ.get('VK_CLIENT_SECRET')
+VK_CLIENT_ID = os.environ.get('VK_CLIENT_ID')
+SITE_URL = 'http://' + os.environ.get('SITE_DOMAIN')
