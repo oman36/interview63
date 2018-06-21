@@ -1,6 +1,7 @@
 {% extends "interview/layout.html" %}
 {% block content %}
     <br>
+    <h1>{{ user.last_name }} {{ user.first_name }}</h1>
     <ul class="list-group">
         {% for friend in friends %}
             <li class="list-group-item">

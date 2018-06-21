@@ -12,10 +12,10 @@ def index(request):
 
     vk_api = vk.API(vk.Session(access_token=access_token))
 
-    friends = vk_api.friends.get(count=5, fields='nickname', v=5.80)
+    friends = vk_api.friends.get(count=5, fields='nickname', v=5.80).get('items')
+    user = vk_api.users.get(v=5.80)[0]
 
-    friends = friends.get('items')
-    return render(request, 'interview/index.html', {'friends': friends})
+    return render(request, 'interview/index.html', {'friends': friends, 'user': user})
 
 
 def auth(request):
@@ -33,13 +33,13 @@ def code(request):
           '&client_secret=' + settings.VK_CLIENT_SECRET + \
           '&code=' + request.GET.get('code') + \
           '&redirect_uri=' + settings.SITE_URL + '/code'
-    resp = requests.get(url)
-    response = resp.json()
-    if 'access_token' not in response:
-        return HttpResponse('An error happened <br> %s <br> %s' % (url, resp.content))
+    response = requests.get(url)
+    data = response.json()
+    if 'access_token' not in data:
+        return HttpResponse('An error happened <br> %s <br> %s' % (url, response.content))
 
     http_response = HttpResponseRedirect('/')
-    http_response.set_cookie('access_token', response['access_token'], response['expires_in'])
+    http_response.set_cookie('access_token', data['access_token'], data['expires_in'])
     return http_response
 
 
